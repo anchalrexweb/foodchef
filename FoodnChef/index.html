@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		FOOD n CHEF
+	</title>
+	<link rel="stylesheet"  href="from.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+</head>
+<body>
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">FOOD'n'CHEF</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#dishtable">DISHES</a>
+          
+        </div>
+      </li>
+
+      
+    </ul>
+    <div class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" id="searchfield" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search">Search</button>
+    </div>
+  </div>
+</nav>
+
+
+<!-- form -->
+
+<div class="container pt-2 formmain" >
+	<div class="row">
+		<div class="col-sm-6">
+			
+				<div class="form-group row">
+    			<label for="name" class="col-sm-2 col-form-label">Dish Name</label>
+    				<div class="col-sm-10">
+      					<input type="text"  class="form-control" id="dish" placeholder="Enter name of the dish" >
+    				</div>
+ 			 </div>
+  			<div class="form-group row">
+    			<label for="steps" class="col-sm-2 col-form-label">Steps to cook</label>
+   		 			<div class="col-sm-10">
+      					<input type="text" class="form-control" id="steps" placeholder="enter steps to cook">
+    				</div>
+  			</div>
+  			<div class="form-group row">
+    			<label for="image" class="col-sm-2 col-form-label">Image of Dish</label>
+    			<div class="col-sm-10">
+      				<input type="URL" class="form-control" id="image" >
+    			</div>
+  			</div>
+
+  		<h1 class="text-warning font-weight-bold">INGREDIENTS</h1>
+  		
+  		<div class="form-group row">
+    		<label for="ingredients" class="col-sm-2 col-form-label">Ingredients Name</label>
+    		<div class="col-sm-10">
+      			<input type="text"  class="form-control" id="ingredients" placeholder="ingredients" >
+    		</div>
+    		
+  		</div>
+  		<div class="form-group row">
+    		<label for="quantity" class="col-sm-2 col-form-label">Quantity</label>
+    		<div class="col-sm-10">
+      			<input type="text"  class="form-control" id="quantity" placeholder="Quantity" >
+    		</div>
+    	
+  		</div>
+  		<div class="form-group row">
+    		<label for="quantity" class="col-sm-2 col-form-label">UNITS</label>
+    		<div class="col-sm-10">
+      			<input type="text"  class="form-control" id="units" placeholder="units">
+    		</div>
+    	
+  		</div>
+  		<div class="row">
+
+  				<button type="btn" id="add" class="btn btn-primary mr-1">ADD RECIPE</button>
+				<button type="btn" id="update" class="btn btn-secondary mr-1">UPDATE RECIPE</button>
+				<button type="btn" id="show" class="btn btn-success mr-1">SHOW RECORD</button>
+				<button type="btn" id="moreingredients" class="btn btn-warning">ADD ingredients</button>
+  		 </div>
+		
+			
+	</div>
+  		 
+	<div class="col-sm-6 ">
+		<table class="table table-bordered" id="searchtable" >
+			<thead class="thead-dark">
+				<tr>
+					<th>DISH NAME</th>
+					<th>RECIPE</th>
+
+					
+				</tr>
+			</thead>
+			<tbody   id="searchbody">
+				
+			</tbody>
+		</table>
+	</div>
+
+  
+<!-- The Modal for adding new ingredient-->
+  <div class="modal" id="hiddenform">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Add more ingredients</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          		<div class="form-group row">
+    				<label for="name" class="col-sm-2 col-form-label"> Name</label>
+    				<div class="col-sm-10">
+      					<input type="text"  class="form-control" id="ingname" placeholder="Enter name of the dish" required>
+    				</div>
+ 			 	</div>
+ 			 	<div class="form-group row">
+    				<label for="name" class="col-sm-2 col-form-label"> Quantity</label>
+    				<div class="col-sm-10">
+      					<input type="text"  class="form-control" id="ingquantity" placeholder="Enter its quantity" required>
+    				</div>
+ 			 	</div>
+ 			 	<div class="form-group row">
+    				<label for="name" class="col-sm-2 col-form-label"> Units</label>
+    				<div class="col-sm-10">
+      					<input type="text"  class="form-control" id="ingunit" placeholder="Enter unit" required>
+    				</div>
+ 			 	</div>
+
+			
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success newing" data-dismiss="modal">ADD</button>
+        </div>
+        
+      </div>
+    </div>
+   </div> 
+
+
+
+<!-- The Modal for updating-->
+  <div class="modal" id="updateingred">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">update the existing ingredient</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          		<div class="form-group row">
+    				<label for="name" class="col-sm-2 col-form-label"> Name</label>
+    				<div class="col-sm-10">
+      					<input type="text"  class="form-control" id="updatename"  required>
+    				</div>
+ 			 	</div>
+ 			 	<div class="form-group row">
+    				<label for="name" class="col-sm-2 col-form-label">Quantity</label>
+    				<div class="col-sm-10">
+      					<input type="text"  class="form-control" id="updatequantity"  required>
+    				</div>
+ 			 	</div>
+ 			 	<div class="form-group row">
+    				<label for="name" class="col-sm-2 col-form-label">Units</label>
+    				<div class="col-sm-10">
+      					<input type="text"  class="form-control" id="updateunit" required>
+    				</div>
+ 			 	</div>
+
+			
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success updating" data-dismiss="modal">UPDATE</button>
+        </div>
+        
+      </div>
+    </div>
+   </div> 
+
+ <!-- TABLE -->
+  <table class="table table-bordered mt-2" id="dishtable" >
+	<thead class="thead-dark">
+		<tr>
+			<th>DISH NAME</th>
+			<th>RECIPE</th>
+			<th>IMAGE</th>
+			<th>INGREDIENTS</th>
+			<th>ADD Ingredients</th>
+			<th>DELETE</th>
+			<th>EDIT DISH</th>
+			
+		</tr>
+	</thead>
+	<tbody id="dishtbody">
+					
+	</tbody>
+</table>
+</div>
+
+
+
+<script type="text/javascript" src="from.js">
+	
+</script>
+</body>
+
+</html>
